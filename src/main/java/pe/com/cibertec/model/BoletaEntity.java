@@ -11,14 +11,14 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
+
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import java.util.Date;
 
-@Getter
-@Setter
+@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

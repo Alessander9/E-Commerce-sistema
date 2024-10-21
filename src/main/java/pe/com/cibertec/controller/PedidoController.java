@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class PedidoController {
-	@GetMapping("/Registrarpedido") //aca se rutea la pagina
+	@GetMapping("/registrarPedido") //aca se rutea la pagina
     public String pedido() {
-        return "Registrarpedido"; // Nombre del archivo HTML sin la extensión
+        return "registrarPedido"; // Nombre del archivo HTML sin la extensión
     }
 }

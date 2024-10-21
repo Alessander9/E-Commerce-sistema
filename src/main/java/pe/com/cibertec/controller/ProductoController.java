@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ProductoController {
-		@GetMapping("/productos")
+		@GetMapping("/registrarProductos")
 		public String productos() {
-			return "productos";
+			return "registrarProductos";
 		}
 }
