@@ -1,12 +1,12 @@
 package pe.com.cibertec.model;
 
-import java.util.Date;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Date;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -29,11 +29,10 @@ public class UsuarioEntity {
     @Column(name = "contraseña", nullable = false, length = 100)
     private String contraseña;
 
-    @Column(name = "tipo_usuario", nullable = false, length = 20) // Nuevo campo
+    @Column(name = "tipo_usuario", nullable = false, length = 20) // Tipo de usuario
     private String tipoUsuario; // Indica si es "cliente" o "trabajador"
 
     @Temporal(TemporalType.DATE)
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
-    
 }

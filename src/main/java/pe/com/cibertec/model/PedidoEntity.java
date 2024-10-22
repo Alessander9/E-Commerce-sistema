@@ -1,21 +1,12 @@
 package pe.com.cibertec.model;
 
-import java.sql.Date;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.sql.Date;
 
 @Entity
 @Table(name = "tb_pedido")
@@ -34,12 +25,12 @@ public class PedidoEntity {
     private ClienteEntity cliente;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "fecha_pedido")
-    private Date fechaPedido;
+    @Column(name = "fecha_creacion")
+    private Date fechaCreacion;
 
     @Column(name = "estado", nullable = false, length = 20)
-    private String estado; // PENDIENTE, COMPLETADO, CANCELADO
+    private String estado; // PENDIENTE, CULMINADO, CANCELADO
 
     @Column(name = "total", nullable = false)
-    private Double total;
+    private Double total; // Total de la compra
 }
