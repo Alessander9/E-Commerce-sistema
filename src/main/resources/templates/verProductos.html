@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .product-card {
+            margin-bottom: 20px;
+        }
+        .product-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        /* Estilo del menú lateral */
+        #carrito {
+            position: fixed;
+            top: 0;
+            right: -300px; /* Oculto por defecto */
+            height: 100%;
+            width: 300px;
+            background-color: #fff;
+            border-left: 1px solid #ddd;
+            padding: 20px;
+            transition: right 0.3s;
+            z-index: 1000;
+        }
+        #carrito.show {
+            right: 0; /* Muestra el menú deslizante */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">MiTienda</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="toggleCarrito()">Carrito</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Nuestros Productos</h2>
+        <div class="row">
+            <!-- 16 Tarjetas de Productos -->
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <img src="ruta_de_imagen_producto_1.jpg" class="card-img-top" alt="Producto 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 1</h5>
+                        <p class="card-text">$29.99</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito('Producto 1', 29.99)">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <img src="ruta_de_imagen_producto_2.jpg" class="card-img-top" alt="Producto 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 2</h5>
+                        <p class="card-text">$35.99</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito('Producto 2', 35.99)">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <img src="ruta_de_imagen_producto_3.jpg" class="card-img-top" alt="Producto 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 3</h5>
+                        <p class="card-text">$45.00</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito('Producto 3', 45.00)">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <img src="ruta_de_imagen_producto_4.jpg" class="card-img-top" alt="Producto 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 4</h5>
+                        <p class="card-text">$19.99</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito('Producto 4', 19.99)">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <img src="ruta_de_imagen_producto_5.jpg" class="card-img-top" alt="Producto 5">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 5</h5>
+                        <p class="card-text">$22.50</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito('Producto 5', 22.50)">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <img src="ruta_de_imagen_producto_6.jpg" class="card-img-top" alt="Producto 6">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 6</h5>
+                        <p class="card-text">$18.99</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito('Producto 6', 18.99)">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <img src="ruta_de_imagen_producto_7.jpg" class="card-img-top" alt="Producto 7">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 7</h5>
+                        <p class="card-text">$24.99</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito('Producto 7', 24.99)">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <img src="ruta_de_imagen_producto_8.jpg" class="card-img-top" alt="Producto 8">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 8</h5>
+                        <p class="card-text">$30.99</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito('Producto 8', 30.99)">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <img src="ruta_de_imagen_producto_9.jpg" class="card-img-top" alt="Producto 9">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 9</h5>
+                        <p class="card-text">$32.99</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito('Producto 9', 32.99)">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Añadir más tarjetas para completar 16 productos -->
+            <!-- Agrega más tarjetas con nombres, precios y rutas de imagen diferentes -->
+        </div>
+    </div>
+
+    <!-- Menú Lateral del Carrito de Compras -->
+    <div id="carrito">
+        <h4>Carrito de Compras</h4>
+        <ul id="lista-carrito"></ul>
+        <p id="total-carrito">Total: $0.00</p>
+        <button class="btn btn-danger" onclick="vaciarCarrito()">Vaciar carrito</button>
+        <button class="btn btn-success mt-2" onclick="pagar()">Pagar</button>
+        <button class="btn btn-secondary mt-2" onclick="toggleCarrito()">Cerrar</button>
+    </div>
+
+    <script>
+        let carrito = [];
+
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre, precio });
+            actualizarCarrito();
+        }
+
+        function actualizarCarrito() {
+            const listaCarrito = document.getElementById("lista-carrito");
+            const totalCarrito = document.getElementById("total-carrito");
+            listaCarrito.innerHTML = "";
+            let total = 0;
+            carrito.forEach((producto, index) => {
+                total += producto.precio;
+                const li = document.createElement("li");
+                li.textContent = `${producto.nombre} - $${producto.precio.toFixed(2)}`;
+                listaCarrito.appendChild(li);
+            });
+            totalCarrito.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        function vaciarCarrito() {
+            carrito = [];
+            actualizarCarrito();
+        }
+
+        function toggleCarrito() {
+            const carritoDiv = document.getElementById("carrito");
+            carritoDiv.classList.toggle("show");
+        }
+
+        function pagar() {
+            if (carrito.length === 0) {
+                alert("El carrito está vacío.");
+            } else {
+                alert("¡Gracias por su compra!");
+                vaciarCarrito();
+                toggleCarrito();
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
