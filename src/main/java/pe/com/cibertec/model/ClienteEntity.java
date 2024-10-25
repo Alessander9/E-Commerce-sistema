@@ -1,12 +1,12 @@
 package pe.com.cibertec.model;
 
-import java.sql.Date;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.sql.Date;
 
 @Entity
 @Table(name = "tb_cliente")
@@ -35,9 +35,8 @@ public class ClienteEntity {
     @Temporal(TemporalType.DATE)
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
-    
+
     @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false) // Clave foránea hacia SedeEntity
+    @JoinColumn(name = "usuario_id", nullable = false) // Clave foránea hacia UsuarioEntity
     private UsuarioEntity tb_usuario;
-    
 }

@@ -1,28 +1,19 @@
 package pe.com.cibertec.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-
+import lombok.Setter;
 
 import java.util.Date;
 
-@Data
 @Entity
+@Table(name = "tb_boleta")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_boleta")
 public class BoletaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,11 +22,11 @@ public class BoletaEntity {
 
     @ManyToOne
     @JoinColumn(name = "pedido_id", nullable = false) // Clave foránea hacia PedidoEntity
-    private PedidoEntity tb_pedido;
+    private PedidoEntity pedido;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false) // Clave foránea hacia UsuarioEntity
-    private UsuarioEntity tb_usuario;
+    private UsuarioEntity usuario;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "fecha")
@@ -43,8 +34,4 @@ public class BoletaEntity {
 
     @Column(name = "total_cobrar", nullable = false)
     private Double totalCobrar;
-    
-    @ManyToOne
-    @JoinColumn(name = "trabajador_id", nullable = false) // Clave foránea hacia UsuarioEntity
-    private TrabajadorEntity tb_trabajador;
 }
